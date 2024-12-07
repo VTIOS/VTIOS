@@ -1,9 +1,9 @@
-Package: com.fpsbinios.bin
-Name: FPSDoiMau
+Package: com.VanThanh.IOS
+Name: VTIOS
 Depends: mobilesubstrate
 Version: 0.0.1
 Architecture: iphoneos-arm
 Description: An awesome MobileSubstrate tweak!
-Maintainer: @BINIOS
-Author: @BINIOS
+Maintainer: @VTIOS
+Author: @VTIOS
 Section: Tweaks
