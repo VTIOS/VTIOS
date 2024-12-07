@@ -105,7 +105,7 @@ double batLeft = (float)[myDevice batteryLevel] * 100;
 
 
 
-NSString *WMText = [NSString stringWithFormat:@" %d FPS | %@ | Pin: %0.0f  DoiTenODay",(int)round(fps),mustr,batLeft]; 
+NSString *WMText = [NSString stringWithFormat:@" %d FPS | %@ | Pin: %0.0f  VTIOS ",(int)round(fps),mustr,batLeft]; 
 
   self.displayLabel.textColor = [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:1];
 
