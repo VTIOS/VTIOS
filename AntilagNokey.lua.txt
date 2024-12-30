@@ -4,7 +4,7 @@ local PhantomForcesWindow = Library:NewWindow("Văn Thành IOS")
  
 local KillingCheats = PhantomForcesWindow:NewSection("Main Antilag")
  
-KillingCheats:CreateButton("Antilag", 
+KillingCheats:CreateButton("Antilag", function()
 --// World Check
 First_Sea = false
 Second_Sea = false
