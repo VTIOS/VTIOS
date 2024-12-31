@@ -5,7 +5,6 @@ local Window = Library:CreateWindow('Menu : Văn Thành IOS ')
 local Tab = {
 
     Tab_1 = Window:addTab('Home')
-    Tab_2 = Window:addTab('#Raids'),
 
 }
 
