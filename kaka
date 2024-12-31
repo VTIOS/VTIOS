@@ -24,7 +24,7 @@ Main_Home:addTextbox("Speed Hack", getgenv().WalkSpeedValue, function(speedfunc)
 end)
 
 
-Main_Home:addButton("FPS Boost", function()
+Main_Home:addButton("Antilag + FPS", function()
     local decalsyeeted = false
     local g = game
     local w = g.Workspace
@@ -64,3 +64,4 @@ Main_Home:addButton("FPS Boost", function()
     end
 end)
 
+Main_Home:addButton("Auto Nhặt Fruit TĐ", function()
