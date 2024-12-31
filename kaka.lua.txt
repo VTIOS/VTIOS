@@ -514,7 +514,7 @@ function PostWebhook(Url, message)
 end
 end)
 
-Main_Home:addButton("ESP Fruit(Red Color)', _G.ESPDF, function(Value)
+Main_Home:addToggle('Devil Fruit ESP (Red Color)', _G.ESPDF, function(Value)
     _G.ESPDF = Value
 end)
 spawn(function()
@@ -567,4 +567,3 @@ spawn(function()
         end
     end
 end)
-
