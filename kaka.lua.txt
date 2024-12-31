@@ -135,7 +135,7 @@ Request(Final)
 
 -- Thông Báo 
 require(game.ReplicatedStorage:WaitForChild("Notification")).new(
-            "Alex Hub ~ Auto Nhặt Fruit"
+            "Văn Thành Hub ~ Auto Nhặt Fruit"
         ):Display()
 -- Thông Báo 
 require(game.ReplicatedStorage:WaitForChild("Notification")).new(
