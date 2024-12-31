@@ -513,3 +513,129 @@ function PostWebhook(Url, message)
     return ""
 end
 end)
+
+local Home_Left = Tab.Tab_1:addSection()
+local Main_Home = Home_Left:addMenu('#Home')
+
+local WeaponList = {"Melee","Blox Fruit","Sword","Gun"}
+SelectWeaponFarm = "Melee"
+Main_Home:addDropdown("Select Weapon", SelectWeaponFarm, WeaponList,function(weaponfunc)
+    SelectWeaponFarm = weaponfunc
+end)
+task.spawn(function()
+    while wait() do
+        pcall(function()
+            if SelectWeaponFarm == "Melee" then
+                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Melee" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            SelectWeapon = v.Name
+                        end
+                    end
+                end
+            elseif SelectWeaponFarm == "Sword" then
+                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Sword" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            SelectWeapon = v.Name
+                        end
+                    end
+                end
+            elseif SelectWeaponFarm == "Blox Fruit" then
+                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Blox Fruit" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            SelectWeapon = v.Name
+                        end
+                    end
+                end
+            elseif SelectWeaponFarm == "Gun" then
+                for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.ToolTip == "Gun" then
+                        if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                            SelectWeapon = v.Name
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+--// Farm Mode
+local FarmTable = {
+    "Above",
+    "Beside"
+}
+AutoFarmType = "Above"
+Main_Home:addDropdown("Select Farm Type", AutoFarmType, FarmTable, function(Value)
+    AutoFarmType = Value
+end)
+spawn(function()
+    while wait() do
+        if AutoFarmType == "Above" then
+            Farm_Mode = CFrame.new(0,DisFarm,0) * CFrame.Angles(math.rad(-90),0,0)
+        elseif AutoFarmType == "Beside" then
+            Farm_Mode = CFrame.new(0,2,DisFarm) * CFrame.Angles(math.rad(0),0,0)
+        end
+    end
+end)
+
+DisFarm = 30
+Main_Home:addTextbox("Distance Farm", DisFarm, function(Value)
+    DisFarm = Value
+end)
+
+--[[spawn(function()
+    local gg = getrawmetatable(game)
+    local old = gg.__namecall
+    setreadonly(gg,false)
+    gg.__namecall = newcclosure(function(...)
+        local method = getnamecallmethod()
+        local args = {...}
+        if tostring(method) == "FireServer" then
+            if tostring(args[1]) == "RemoteEvent" then
+                if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
+                    if FastAttack then
+                        if type(args[2]) == "vector" then
+                            args[2] = DragonHitPosition
+                        else
+                            args[2] = CFrame.new(DragonHitPosition)
+                        end
+                        return old(unpack(args))
+                    end
+                end
+            end
+        end
+        return old(...)
+    end)
+end)]]
+function getHead()
+    local returntable = {}
+    local plr = game:GetService("Players").LocalPlayer
+    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v:FindFirstChild("Humanoid").Health > 0 then
+            if (v.Head.Position - plr.Character.HumanoidRootPart.Position).Magnitude < 70 then
+                table.insert(returntable, v.HumanoidRootPart)
+            end
+        end
+    end
+    return returntable
+end
+
+function FastShooted()
+    local plr = game:GetService("Players").LocalPlayer
+    local ShootGunEvent = game:GetService("ReplicatedStorage").Modules.Net["RE/ShootGunEvent"]
+    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+        if v:FindFirstChild("Humanoid") and v:FindFirstChild("Humanoid").Health > 0 then
+            local toolEquiped = plr.Character:FindFirstChildOfClass("Tool")
+            if (v.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude < 50 then
+                local toolEquiped = plr.Character:FindFirstChildOfClass("Tool")
+                if toolEquiped.ToolTip == "Gun" and RaidAura == false then
+                    --plr.Character[SelectWeaponFarm].RemoteFunctionShoot:InvokeServer(v.HumanoidRootPart.Position, v.HumanoidRootPart)
+                    ShootGunEvent:FireServer(v.HumanoidRootPart.Position, {[1] = v.HumanoidRootPart})
+                end
+            end
+        end
+    end
+end
