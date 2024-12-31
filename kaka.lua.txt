@@ -514,52 +514,60 @@ function PostWebhook(Url, message)
 end
 end)
 
-Main_Home:addToggle('ESP Fruit', _G.ESPDF, function(Value)
-    _G.ESPDF = Value
+Main_Home:addToggle('Fruit ESP (Yellow Color)', FruitESPe, function(Value)
+    FruitESPe = Value
 end)
 spawn(function()
     while wait() do
-        if _G.ESPDF then
+        if FruitESPe then
             pcall(function()
-                for i,v in pairs(game.Workspace:GetChildren()) do
-                    if v:IsA("Tool") then
-                        if v:FindFirstChild("vthanh") then
-                            repeat task.wait(.1)
-                                if not v.Handle:FindFirstChild("ESPFruit") then
-                                    local BillboardGui = Instance.new("BillboardGui")
-                                    local TextLabel = Instance.new("TextLabel")
+                for a,b in pairs(game.Workspace:GetChildren()) do
+                    if b.Name == 'PineappleSpawner' or b.Name == 'BananaSpawner' or b.Name == 'AppleSpawner' then
+                        for i,v in pairs(b:GetChildren()) do
+                            if v:IsA('Tool') then
+                                if v:FindFirstChild("Handle") then
+                                    repeat task.wait(.1)
+                                        if not v.Handle:FindFirstChild("FruitESP") then
+                                            local BillboardGui = Instance.new("BillboardGui")
+                                            local TextLabel = Instance.new("TextLabel")
 
-                                    BillboardGui.Parent = t.vthanh
-                                    BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-                                    BillboardGui.Active = true
-                                    BillboardGui.Name = "ESPFruit"
-                                    BillboardGui.AlwaysOnTop = true
-                                    BillboardGui.LightInfluence = 1.000
-                                    BillboardGui.Size = UDim2.new(0, 200, 0, 50)
-                                    BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
+                                            BillboardGui.Parent = v.Handle
+                                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                                            BillboardGui.Active = true
+                                            BillboardGui.Name = "FruitESP"
+                                            BillboardGui.AlwaysOnTop = true
+                                            BillboardGui.LightInfluence = 1.000
+                                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
+                                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
 
-                                    TextLabel.Parent = BillboardGui
-                                    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                                    TextLabel.BackgroundTransparency = 1.000
-                                    TextLabel.Size = UDim2.new(0, 200, 0, 50)
-                                    TextLabel.Font = Enum.Font.GothamBold
-                                    TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
-                                    TextLabel.FontSize = "Size14"
-                                    TextLabel.TextStrokeTransparency = 0.5
+                                            TextLabel.Parent = BillboardGui
+                                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                                            TextLabel.BackgroundTransparency = 1.000
+                                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
+                                            TextLabel.Font = Enum.Font.GothamBold
+                                            TextLabel.TextColor3 = Color3.fromRGB(255, 255, 0)
+                                            TextLabel.FontSize = "Size14"
+                                            TextLabel.TextStrokeTransparency = 0.5
+                                        end
+                                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Handle.Position).Magnitude)
+                                        v.Handle.FruitESP.TextLabel.Text = v.Name.."\n"..Dis.." M."
+                                    until not FruitESPe
                                 end
-                                local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Handle.Position).Magnitude)
-                                t.vthanh.ESPFruit.TextLabel.Text = v.Name.."\n"..Dis.." M."
-                            until not _G.ESPDF
+                            end
                         end
                     end
                 end
             end)
         else
-            for i,v in pairs(game.Workspace:GetChildren()) do
-                if string.find(v.Name, "Trái Cây") then
-                    if v:FindFirstChild("t.vthanh") then
-                        if t.vthanh:FindFirstChild("ESPFruit") then
-                            t.vthanh.ESPFruit:Destroy()
+            for a,b in pairs(game.Workspace:GetChildren()) do
+                if b.Name == 'PineappleSpawner' or b.Name == 'BananaSpawner' or b.Name == 'AppleSpawner' then
+                    for i,v in pairs(b:GetChildren()) do
+                        if v:IsA('Tool') then
+                            if v:FindFirstChild("Handle") then
+                                if v.Handle:FindFirstChild("FruitESP") then
+                                    v.Handle.FruitESP:Destroy()
+                                end
+                            end
                         end
                     end
                 end
