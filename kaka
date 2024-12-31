@@ -65,3 +65,4 @@ Main_Home:addButton("Antilag + FPS", function()
 end)
 
 Main_Home:addButton("Auto Nhặt Fruit TĐ", function()
+loadstring(Game:HttpGet("https://raw.githubusercontent.com/VanThanhIOS/vanthanhdepzai/refs/heads/main/autofruit.lua.txt"))()
