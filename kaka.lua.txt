@@ -520,53 +520,6 @@ function PostWebhook(Url, message)
     return ""
 end
 end)
-Main_Home:addButton("ESP Fruit",function UpdateDevilChams()
-    for _, v in pairs(game.Workspace:GetChildren()) do
-        pcall(function()
-            if DevilFruitESP then
-                if string.find(v.Name, "Fruit") and not isnil(v:FindFirstChild("Handle")) then
-                    if not v.Handle:FindFirstChild('NameEsp' .. Number) then
-                        -- Tạo ESP cho trái cây
-                        local bill = Instance.new('BillboardGui', v.Handle)
-                        bill.Name = 'NameEsp' .. Number
-                        bill.ExtentsOffset = Vector3.new(0, 1, 0)
-                        bill.Size = UDim2.new(1, 200, 1, 30)
-                        bill.Adornee = v.Handle
-                        bill.AlwaysOnTop = true
-
-                        local name = Instance.new('TextLabel', bill)
-                        name.Font = Enum.Font.GothamSemibold
-                        name.FontSize = Enum.FontSize.Size14
-                        name.TextWrapped = true
-                        name.Size = UDim2.new(1, 0, 1, 0)
-                        name.TextYAlignment = Enum.TextYAlignment.Top
-                        name.BackgroundTransparency = 1
-                        name.TextStrokeTransparency = 0.5
-                        name.TextColor3 = Color3.new(1, 0, 0) -- Màu đỏ
-                        -- Chỉ hiển thị tên trái cây
-                        name.Text = (isVietnamese and "Fruit" or "Fruit")
-                    else
-                        local textLabel = v.Handle['NameEsp' .. Number].TextLabel
-                        -- Cập nhật tên trái cây
-                        textLabel.Text = (isVietnamese and "Fruit" or "Fruit")
-                    end
-                end
-            else
-                -- Xóa ESP nếu DevilFruitESP là false
-                if not isnil(v:FindFirstChild("Handle")) and v.Handle:FindFirstChild('NameEsp' .. Number) then
-                    v.Handle:FindFirstChild('NameEsp' .. Number):Destroy()
-                end
-            end
-        end)
-    end
-end
-
--- Tự động cập nhật ESP cho trái cây
-spawn(function()
-    while wait(1) do
-        UpdateDevilChams()
-    end
-end)
 
 local Home_Left = Tab.Tab_1:addSection()
 local Changelog = Home_Left:addMenu("Thông Tin")
