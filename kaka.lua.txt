@@ -514,7 +514,7 @@ function PostWebhook(Url, message)
 end
 end)
 
-Main_Home:addToggle('Devil Fruit ESP (Red Color)', _G.ESPDF, function(Value)
+Main_Home:addToggle('ESP Fruit', _G.ESPDF, function(Value)
     _G.ESPDF = Value
 end)
 spawn(function()
@@ -523,16 +523,16 @@ spawn(function()
             pcall(function()
                 for i,v in pairs(game.Workspace:GetChildren()) do
                     if v:IsA("Tool") then
-                        if v:FindFirstChild("Handle") then
+                        if v:FindFirstChild("vthanh") then
                             repeat task.wait(.1)
-                                if not v.Handle:FindFirstChild("DevilFruitESP") then
+                                if not v.Handle:FindFirstChild("ESPFruit") then
                                     local BillboardGui = Instance.new("BillboardGui")
                                     local TextLabel = Instance.new("TextLabel")
 
-                                    BillboardGui.Parent = v.Handle
+                                    BillboardGui.Parent = t.vthanh
                                     BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
                                     BillboardGui.Active = true
-                                    BillboardGui.Name = "DevilFruitESP"
+                                    BillboardGui.Name = "ESPFruit"
                                     BillboardGui.AlwaysOnTop = true
                                     BillboardGui.LightInfluence = 1.000
                                     BillboardGui.Size = UDim2.new(0, 200, 0, 50)
@@ -548,7 +548,7 @@ spawn(function()
                                     TextLabel.TextStrokeTransparency = 0.5
                                 end
                                 local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Handle.Position).Magnitude)
-                                v.Handle.DevilFruitESP.TextLabel.Text = v.Name.."\n"..Dis.." M."
+                                t.vthanh.ESPFruit.TextLabel.Text = v.Name.."\n"..Dis.." M."
                             until not _G.ESPDF
                         end
                     end
@@ -556,10 +556,10 @@ spawn(function()
             end)
         else
             for i,v in pairs(game.Workspace:GetChildren()) do
-                if string.find(v.Name, "Fruit") then
-                    if v:FindFirstChild("Handle") then
-                        if v.Handle:FindFirstChild("DevilFruitESP") then
-                            v.Handle.DevilFruitESP:Destroy()
+                if string.find(v.Name, "Trái Cây") then
+                    if v:FindFirstChild("t.vthanh") then
+                        if t.vthanh:FindFirstChild("ESPFruit") then
+                            t.vthanh.ESPFruit:Destroy()
                         end
                     end
                 end
