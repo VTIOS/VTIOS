@@ -31,15 +31,6 @@ Main_Home:addTextbox("Nhảy Cao", getgenv().JumpValue, function(jumpfunc)
     end
 end)
 
-Main_Home:addToggle("Nhảy Vô Hạn", InfiniteJumpEnabled, function(Value)
-    InfiniteJumpEnabled = Value
-    if InfiniteJumpEnabled then
-        game:GetService("UserInputService").JumpRequest:connect(function()
-            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
-        end)
-    end
-end)
-
 Main_Home:addButton("Antilag + FPS", function()
     local decalsyeeted = false
     local g = game
