@@ -71,7 +71,7 @@ Main_Home:addButton("Antilag + FPS", function()
     end
 end)
 
-Main_Home:addButton("Antilag Vip", function()
+Main_Home:addButton("Antilag 2", function()
 
   local ToDisable = {
 	Textures = true,
@@ -145,7 +145,81 @@ if ToEnable.FullBright then
 end
 end)
 
-Main_Home:addButton("Auto Nhặt Fruit TĐ", function()
+Main_Home:addButton("Antilag 3", function()
+
+local ToDisable = {
+	Textures = true,
+	VisualEffects = true,
+	Parts = true,
+	Particles = true,
+	Sky = true
+}
+
+local ToEnable = {
+	FullBright = false
+}
+
+local Stuff = {}
+
+for _, v in next, game:GetDescendants() do
+	if ToDisable.Parts then
+		if v:IsA("Part") or v:IsA("Union") or v:IsA("BasePart") then
+			v.Material = Enum.Material.SmoothPlastic
+			table.insert(Stuff, 1, v)
+		end
+	end
+	
+	if ToDisable.Particles then
+		if v:IsA("ParticleEmitter") or v:IsA("Smoke") or v:IsA("Explosion") or v:IsA("Sparkles") or v:IsA("Fire") then
+			v.Enabled = false
+			table.insert(Stuff, 1, v)
+		end
+	end
+	
+	if ToDisable.VisualEffects then
+		if v:IsA("BloomEffect") or v:IsA("BlurEffect") or v:IsA("DepthOfFieldEffect") or v:IsA("SunRaysEffect") then
+			v.Enabled = false
+			table.insert(Stuff, 1, v)
+		end
+	end
+	
+	if ToDisable.Textures then
+		if v:IsA("Decal") or v:IsA("Texture") then
+			v.Texture = ""
+			table.insert(Stuff, 1, v)
+		end
+	end
+	
+	if ToDisable.Sky then
+		if v:IsA("Sky") then
+			v.Parent = nil
+			table.insert(Stuff, 1, v)
+		end
+	end
+end
+
+game:GetService("TestService"):Message("Effects Disabler Script : Successfully disabled "..#Stuff.." assets / effects. Settings :")
+
+for i, v in next, ToDisable do
+	print(tostring(i)..": "..tostring(v))
+end
+
+if ToEnable.FullBright then
+    local Lighting = game:GetService("Lighting")
+    
+    Lighting.FogColor = Color3.fromRGB(255, 255, 255)
+    Lighting.FogEnd = math.huge
+    Lighting.FogStart = math.huge
+    Lighting.Ambient = Color3.fromRGB(255, 255, 255)
+    Lighting.Brightness = 5
+    Lighting.ColorShift_Bottom = Color3.fromRGB(255, 255, 255)
+    Lighting.ColorShift_Top = Color3.fromRGB(255, 255, 255)
+    Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)
+    Lighting.Outlines = true
+end
+end)
+
+Main_Home:addButton("Auto Nhặt Trái Cây TĐ", function()
 
 local placeId = game.PlaceId
 local jobId = game.JobId
@@ -1502,6 +1576,152 @@ Atm.Color = Color3.fromRGB(199, 175, 166)
 Atm.Decay = Color3.fromRGB(44, 39, 33)
 Atm.Glare = 0.45
 Atm.Haze = 1.72
+
+ShadowFrame.AnchorPoint = Vector2.new(0.5,1)
+ShadowFrame.Position = UDim2.new(0.5,0,1,0)
+ShadowFrame.Size = UDim2.new(1,0,1.05,0)
+ShadowFrame.BackgroundTransparency = 1
+ShadowFrame.Image = "rbxassetid://4576475446"
+ShadowFrame.ImageTransparency = 0.3
+end)
+
+Main_Home:addButton("Shader 2", function()
+
+game.Lighting.ClockTime = 19
+
+local Lighting = game:GetService("Lighting")
+local StarterGui = game:GetService("StarterGui")
+local Bloom = Instance.new("BloomEffect")
+local Blur = Instance.new("BlurEffect")
+local ColorCor = Instance.new("ColorCorrectionEffect")
+local SunRays = Instance.new("SunRaysEffect")
+local Sky = Instance.new("Sky")
+local Atm = Instance.new("Atmosphere")
+local Gui = Instance.new("ScreenGui")
+local ShadowFrame = Instance.new("ImageLabel")
+
+for i, v in pairs(Lighting:GetChildren()) do
+	if v then
+		v:Destroy()
+	end
+end
+
+Bloom.Parent = Lighting
+Blur.Parent = Lighting
+ColorCor.Parent = Lighting
+SunRays.Parent = Lighting
+Sky.Parent = Lighting
+Atm.Parent = Lighting
+Gui.Parent = StarterGui
+ShadowFrame.Parent = Gui
+
+Bloom.Intensity = 0.05
+Bloom.Size = 17
+Bloom.Threshold = 0.1
+
+Blur.Size = 2
+
+ColorCor.Brightness = 0.2
+ColorCor.Contrast = 0.9
+ColorCor.Saturation = 0.2
+ColorCor.TintColor = Color3.fromRGB(255, 235, 203)
+
+SunRays.Intensity = 0.08
+SunRays.Spread = 0.728
+
+
+Sky.SunAngularSize = 21
+
+Lighting.Ambient = Color3.fromRGB(106,106,106)
+Lighting.Brightness = 0.4
+Lighting.ColorShift_Bottom = Color3.fromRGB(0,0,0)
+Lighting.ColorShift_Top = Color3.fromRGB(0,0,0)
+Lighting.EnvironmentDiffuseScale = 0.2
+Lighting.EnvironmentSpecularScale = 0.2
+Lighting.GlobalShadows = true
+Lighting.OutdoorAmbient = Color3.fromRGB(0,0,0)
+Lighting.ShadowSoftness = 0
+--day and night cycle
+
+
+Lighting.GeographicLatitude = 45
+Lighting.ExposureCompensation = 0.5
+
+Atm.Density = 0.364
+Atm.Offset = 0.556
+Atm.Color = Color3.fromRGB(199, 175, 166)
+Atm.Decay = Color3.fromRGB(44, 39, 33)
+Atm.Glare = 0.45
+Atm.Haze = 1.72
+
+ShadowFrame.AnchorPoint = Vector2.new(0.5,1)
+ShadowFrame.Position = UDim2.new(0.5,0,1,0)
+ShadowFrame.Size = UDim2.new(1,0,1.05,0)
+ShadowFrame.BackgroundTransparency = 1
+ShadowFrame.Image = "rbxassetid://4576475446"
+ShadowFrame.ImageTransparency = 0.3
+end)
+
+Main_Home:addButton("Shader 3", function()
+
+game.Lighting.ClockTime = 12
+
+local a = game.Lighting
+a.Ambient = Color3.fromRGB(33, 33, 33)
+a.Brightness = 5.69
+a.ColorShift_Bottom = Color3.fromRGB(0, 0, 0)
+a.ColorShift_Top = Color3.fromRGB(255, 247, 237)
+a.EnvironmentDiffuseScale = 0.105
+a.EnvironmentSpecularScale = 0.522
+a.GlobalShadows = true
+a.OutdoorAmbient = Color3.fromRGB(51, 54, 67)
+a.ShadowSoftness = 0.18
+a.GeographicLatitude = -15.525
+a.ExposureCompensation = 0.75
+b.Enabled = true
+b.Intensity = 0.99
+b.Size = 9999 
+b.Threshold = 0
+local c = Instance.new("ColorCorrectionEffect", a)
+c.Brightness = 0.015
+c.Contrast = 0.25
+c.Enabled = true
+c.Saturation = 0.2
+c.TintColor = Color3.fromRGB(217, 145, 57)
+if getgenv().mode == "Summer" then
+   c.TintColor = Color3.fromRGB(255, 220, 148)
+elseif getgenv().mode == "Autumn" then
+   c.TintColor = Color3.fromRGB(217, 145, 57)
+else
+   warn("No mode selected!")
+   print("Please select a mode")
+   b:Destroy()
+   c:Destroy()
+end
+local d = Instance.new("DepthOfFieldEffect", a)
+d.Enabled = true
+d.FarIntensity = 0.077
+d.FocusDistance = 21.54
+d.InFocusRadius = 20.77
+d.NearIntensity = 0.277
+local e = Instance.new("ColorCorrectionEffect", a)
+e.Brightness = 0
+e.Contrast = -0.07
+e.Saturation = 0
+e.Enabled = true
+e.TintColor = Color3.fromRGB(255, 247, 239)
+local e2 = Instance.new("ColorCorrectionEffect", a)
+e2.Brightness = 0.2
+e2.Contrast = 0.45
+e2.Saturation = -0.1
+e2.Enabled = true
+e2.TintColor = Color3.fromRGB(255, 255, 255)
+local s = Instance.new("SunRaysEffect", a)
+local ShadowFrame = Instance.new("ImageLabel")
+
+s.Enabled = true
+s.Intensity = 0.01
+s.Spread = 0.146
 
 ShadowFrame.AnchorPoint = Vector2.new(0.5,1)
 ShadowFrame.Position = UDim2.new(0.5,0,1,0)
