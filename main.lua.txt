@@ -219,6 +219,10 @@ if ToEnable.FullBright then
 end
 end)
 
+Main_Home:addButton("Aim Lock Camera", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/VanThanhIOS/AlexAimBot/refs/heads/main/AimBotBanTumLum.lua.txt"))()
+end)
+
 Main_Home:addButton("Auto Nhặt Trái Cây TĐ", function()
 
 local placeId = game.PlaceId
