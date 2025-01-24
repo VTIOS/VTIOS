@@ -244,20 +244,6 @@ function Library:CreateWindow(hubname)
     Tile_Gradient.Name = "Tile_Gradient"
     Tile_Gradient.Parent = List_Tile
 
-    Toggle.Name = "Toggle"
-    Toggle.Parent = ScreenGui
-    Toggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-    Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    Toggle.BorderSizePixel = 0
-    Toggle.Position = UDim2.new(0.0160791595, 0, 0.219451368, 0)
-    Toggle.Size = UDim2.new(0, 40, 0, 40)
-
-    toggle_corner.Name = "toggle_corner"
-    toggle_corner.Parent = Toggle
-
-local a=Instance.new("ScreenGui")
-local b=Instance.new("ImageButton")
-local c=Instance.new("UICorner")a.Parent=game.Players.LocalPlayer:WaitForChild("PlayerGui")a.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;b.Parent=a;b.BackgroundColor3=Color3.fromRGB(255,255,255)b.BorderColor3=Color3.fromRGB(0,0,0)b.BorderSizePixel=0;b.Position=UDim2.new(0.103761353,0,0.214939028,0)b.Size=UDim2.new(0,58,0,55)b.Image="rbxassetid://110365071974573"c.Parent=b;local function d()local e=Instance.new('LocalScript',b)e.Parent.MouseButton1Click:Connect(function()game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)end)end;coroutine.wrap(d)()
 
     local minimizetog = false
     MInimize_Button.MouseButton1Click:Connect(function()
