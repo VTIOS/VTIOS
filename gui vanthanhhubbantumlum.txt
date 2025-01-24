@@ -255,15 +255,9 @@ function Library:CreateWindow(hubname)
     toggle_corner.Name = "toggle_corner"
     toggle_corner.Parent = Toggle
 
-    toggle_Image.Name = "toggle_Image"
-    toggle_Image.Parent = Toggle
-    toggle_Image.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    toggle_Image.BackgroundTransparency = 1.000
-    toggle_Image.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    toggle_Image.BorderSizePixel = 0
-    toggle_Image.Size = UDim2.new(0, 50, 0, 47)
-    toggle_Image.Image = "rbxassetid://81127365331139"
-    toggle_Image.ImageColor3 = Color3.fromRGB(255, 255, 255)
+local a=Instance.new("ScreenGui")
+local b=Instance.new("ImageButton")
+local c=Instance.new("UICorner")a.Parent=game.Players.LocalPlayer:WaitForChild("PlayerGui")a.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;b.Parent=a;b.BackgroundColor3=Color3.fromRGB(255,255,255)b.BorderColor3=Color3.fromRGB(0,0,0)b.BorderSizePixel=0;b.Position=UDim2.new(0.103761353,0,0.214939028,0)b.Size=UDim2.new(0,58,0,55)b.Image="rbxassetid://110365071974573"c.Parent=b;local function d()local e=Instance.new('LocalScript',b)e.Parent.MouseButton1Click:Connect(function()game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)end)end;coroutine.wrap(d)()
 
     local minimizetog = false
     MInimize_Button.MouseButton1Click:Connect(function()
