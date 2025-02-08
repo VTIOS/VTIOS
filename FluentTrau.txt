@@ -2184,7 +2184,7 @@ local aa = {
                         Position = UDim2.new(1, -10, 0.5, 0),
                         AnchorPoint = Vector2.new(1, 0.5),
                         Parent = A.Frame,
-                        Image = "http://www.roblox.com/asset/?id=14204231522",
+                        Image = "http://www.roblox.com/asset/?id=110365071974573",
                         ImageTransparency = 0.45,
                         ScaleType = Enum.ScaleType.Tile,
                         TileSize = UDim2.fromOffset(40, 40)
@@ -2239,7 +2239,7 @@ local aa = {
                                 ScaleType = Enum.ScaleType.Fit,
                                 AnchorPoint = Vector2.new(0.5, 0.5),
                                 BackgroundTransparency = 1,
-                                Image = "http://www.roblox.com/asset/?id=4805639000"
+                                Image = "http://www.roblox.com/asset/?id=110365071974573"
                             }
                         )
                     local L, M =
@@ -2268,7 +2268,7 @@ local aa = {
                         s(
                             "ImageLabel",
                             {
-                                Image = "http://www.roblox.com/asset/?id=14204231522",
+                                Image = "http://www.roblox.com/asset/?id=110365071974573",
                                 ImageTransparency = 0.45,
                                 ScaleType = Enum.ScaleType.Tile,
                                 TileSize = UDim2.fromOffset(40, 40),
@@ -2292,7 +2292,7 @@ local aa = {
                         s(
                             "ImageLabel",
                             {
-                                Image = "http://www.roblox.com/asset/?id=14204231522",
+                                Image = "http://www.roblox.com/asset/?id=110365071974573",
                                 ImageTransparency = 0.45,
                                 ScaleType = Enum.ScaleType.Tile,
                                 TileSize = UDim2.fromOffset(40, 40),
@@ -2326,7 +2326,7 @@ local aa = {
                             "ImageLabel",
                             {
                                 Size = UDim2.fromOffset(14, 14),
-                                Image = "http://www.roblox.com/asset/?id=12266946128",
+                                Image = "http://www.roblox.com/asset/?id=110365071974573",
                                 Parent = S,
                                 ThemeTag = {ImageColor3 = "DialogInput"}
                             }
@@ -2370,7 +2370,7 @@ local aa = {
                             "ImageLabel",
                             {
                                 Size = UDim2.fromOffset(14, 14),
-                                Image = "http://www.roblox.com/asset/?id=12266946128",
+                                Image = "http://www.roblox.com/asset/?id=110365071974573",
                                 Parent = ac,
                                 ThemeTag = {ImageColor3 = "DialogInput"}
                             }
@@ -2407,7 +2407,7 @@ local aa = {
                                 s(
                                     "ImageLabel",
                                     {
-                                        Image = "http://www.roblox.com/asset/?id=14204231522",
+                                        Image = "http://www.roblox.com/asset/?id=110365071974573",
                                         ImageTransparency = 0.45,
                                         ScaleType = Enum.ScaleType.Tile,
                                         TileSize = UDim2.fromOffset(40, 40),
