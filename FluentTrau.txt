@@ -419,7 +419,7 @@ local aa = {
                     j(
                         "ImageLabel",
                         {
-                            Image = "rbxassetid://9968344105",
+                            Image = "rbxassetid://8992230677",
                             ImageTransparency = 0.98,
                             ScaleType = Enum.ScaleType.Tile,
                             TileSize = UDim2.new(0, 128, 0, 128),
@@ -505,7 +505,7 @@ local aa = {
         local c, d, e, f, g = b(8)
         return {
             Close = "rbxassetid://9886659671",
-            Min = "rbxassetid://9886659276",
+            Min = "rbxassetid://110365071974573",
             Max = "rbxassetid://9886659406",
             Restore = "rbxassetid://9886659001"
         }
@@ -2738,7 +2738,7 @@ local aa = {
                         "ImageLabel",
                         {
                             BackgroundTransparency = 1,
-                            Image = "http://www.roblox.com/asset/?id=5554236805",
+                            Image = "http://www.roblox.com/asset/?id=110365071974573",
                             ScaleType = Enum.ScaleType.Slice,
                             SliceCenter = Rect.new(23, 23, 277, 277),
                             Size = UDim2.fromScale(1, 1) + UDim2.fromOffset(30, 30),
