@@ -1,7 +1,4 @@
--- discord.gg/25ms
-
-
-shared.LoaderTitle = "Đăng Ký Kênh Min Gaming";
+shared.LoaderTitle = "Đăng Ký Kênh Văn Thành IOS";
 shared.LoaderKeyFrames = {
     [1] = {
         1,
@@ -96,7 +93,7 @@ local v7 = CreateObject("ImageLabel", {
     Name = "UserImage",
     Parent = v6,
     BackgroundTransparency = 1,
-    Image = "rbxassetid://13717478897",
+    Image = "rbxassetid://110365071974573",
     Position = UDim2.new(0, 15, 0, 10),
     Size = UDim2.new(0, 50, 0, 50)
 });
@@ -105,7 +102,7 @@ local v8 = CreateObject("TextLabel", {
     Name = "UserName",
     Parent = v6,
     BackgroundTransparency = 1,
-    Text = "Youtube: Min Gaming",
+    Text = "Youtube: Văn Thành IOS",
     Position = UDim2.new(0, 75, 0, 10),
     Size = UDim2.new(0, 200, 0, 50),
     Font = Enum.Font.GothamBold,
