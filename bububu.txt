@@ -308,9 +308,9 @@ v5:Destroy();
 --         pcall(v422);
 --     end
 -- end);
-local v14 = loadstring(game:HttpGet("https://raw.githubusercontent.com/obfalchx/testfluent/refs/heads/main/FluentTrau"))();
+local v14 = loadstring(game:HttpGet("https://raw.githubusercontent.com/VTIOS/VTIOS/refs/heads/main/FluentTrau.txt"))();
 local v15 = v14:CreateWindow({
-    Title = "Min Gaming",
+    Title = "Văn Thành IOS",
     SubTitle = "",
     TabWidth = 160,
     Theme = "Light",
@@ -2674,10 +2674,10 @@ if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Respawn
     game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy();
 end
 v16.Home:AddButton({
-    Title = "Discord",
-    Description = "Giao Lưu",
+    Title = "Youtube",
+    Description = "Tại Đây",
     Callback = function()
-        setclipboard("https://discord.gg/25ms");
+        setclipboard("https://youtube.com/@thanhdzso1");
     end
 });
 _G.FastAttackStrix_Mode = "Super Fast Attack";
@@ -9321,7 +9321,7 @@ spawn(function()
     end
 end);
 v14:Notify({
-    Title = "Min Gaming",
+    Title = "Văn Thành IOS",
     Content = "Tải Xong",
     Duration = 10
 });
